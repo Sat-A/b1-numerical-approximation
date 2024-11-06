@@ -55,8 +55,9 @@ yline(pi, 'b--', 'LineWidth', 1.5); % Actual value of Pi
 xlabel('Number of Points (n)');
 ylabel('Estimated Value of Pi');
 title('Estimation of Pi Using Monte Carlo Method');
-legend('Convergence Region', 'Estimated \pi', '\pi');
+legend('Error Bounds (\pm 1 \sigma)', 'Estimated \pi', '\pi');
 grid on;
 ylim([2.75, 3.5]);
 hold off;
-
+fprintf('Final absolute error: %+.6e\n', errors(end));
+fprintf('Final variance: %+.6e\n', var(pi_estimates));

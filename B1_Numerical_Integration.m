@@ -1,7 +1,7 @@
 close all; clear;
 
 % Define the true value of Pi for comparison
-true_pi = pi;
+true_pi = vpa(pi);
 
 % Define the maximum number of intervals for the trapezoidal rule
 max_n = 1000; % You can adjust this value for more steps
@@ -31,11 +31,12 @@ figure;
 subplot(2, 1, 1); % Create a subplot for the estimates
 plot(n_values, pi_estimates, 'r-', 'LineWidth', 2);
 hold on;
-yline(true_pi, 'b--', 'LineWidth', 1.5); % True value of Pi for reference
+yline(pi, 'b--', 'LineWidth', 1.5); % True value of Pi for reference
 xlabel('Number of Intervals (n)');
 ylabel('Estimated Value of Pi');
 title('Estimation of Pi Using Trapezoidal Integration');
-legend('Estimated Pi', '\pi');
+legend('Estimated Pi', '\pi', 'Location', 'best');
+ylim([0, 3.5])
 grid on;
 
 % Plot the error
@@ -48,4 +49,5 @@ grid on;
 
 % Display the final estimated value of Pi and its error
 fprintf('Final estimated value of Pi: %.10f\n', pi_estimates(end));
-fprintf('Final absolute error: %.10f\n', errors(end));
+fprintf('Final absolute error: %+.6e\n', errors(end));
+fprintf('Final variance: %+.6e\n', var(pi_estimates));

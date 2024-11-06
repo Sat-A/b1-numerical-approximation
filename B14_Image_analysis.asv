@@ -1,0 +1,13 @@
+
+sigma = 1;
+len = 7;
+
+arr = zeros(1,len);
+for i = 1:len
+    idx = i - ceil(len/2);
+    arr(1,i) = 1/sqrt(2*pi*sigma^2)*exp(-(idx^2)/(2*sigma^2));
+end
+disp(arr)
+disp(sum(arr))
+
+

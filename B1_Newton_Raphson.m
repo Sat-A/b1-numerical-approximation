@@ -71,3 +71,5 @@ xticks(0:iter-1); % Set x-ticks to integer iterations
 % Display the final result
 fprintf('Estimated value of Pi: %.10f\n', x1);
 fprintf('Number of iterations: %d\n', iter-1); % Display total iterations
+fprintf('Final absolute error: %+.6e\n', absolute_errors(end));
+fprintf('Final variance: %+.6e\n', var(estimates));
